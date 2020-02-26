@@ -75,13 +75,13 @@
 ## [7. Computed Properties](https://www.vuemastery.com/courses/intro-to-vue-js/vue-computed-properties)
 
 - `computed` properties:
-  - ![computed-properties](2020-02-25-19-59-23.png)
+  - ![computed-properties](img/2020-02-25-19-59-23.png)
   - The computed property is cached and updates each time its dependencies change.
     - So it's more efficient to use a computed property than a method.
   - Approach 1: Updating image through method.
-    - ![update-image_method](2020-02-25-20-01-26.png)
+    - ![update-image_method](img/2020-02-25-20-01-26.png)
   - Approach 2: Updating image through computed property.
-    - ![update-image_computed](2020-02-25-20-03-38.png)
+    - ![update-image_computed](img/2020-02-25-20-03-38.png)
 
 ## [8. Components](https://www.vuemastery.com/courses/intro-to-vue-js/components)
 
@@ -89,16 +89,16 @@
 - Options object
   - `template`
     - Template literal uses backticks.
-      - [7 Ways to Define a Component Tempmlate in VueJS](https://medium.com/js-dojo/7-ways-to-define-a-component-template-in-vuejs-c04e0c72900d)
+      - [7 Ways to Define a Component Template in VueJS](https://medium.com/js-dojo/7-ways-to-define-a-component-template-in-vuejs-c04e0c72900d)
     - Template must return a single root element (e.g., wrapping `div`).
     - `data`: A function that returns a data object.
       - So that each instance of the component can have its own data.
     - `props`
       - In order to receive props, a component must explicitly declare which props it expects to receive in a `prop` array.
-        - ![props](2020-02-25-20-12-02.png)
+        - ![props](img/2020-02-25-20-12-02.png)
       - Recommendation: Use a `prop` object instead, with prop validation.
-        - ![prop-validation](2020-02-25-20-13-33.png)
-      - ![passing-prop](2020-02-25-20-16-42.png)
+        - ![prop-validation](img/2020-02-25-20-13-33.png)
+      - ![passing-prop](img/2020-02-25-20-16-42.png)
     - `methods`
     - `computed`
 
@@ -106,9 +106,44 @@
 
 - Emitting an event
   - `this.$emit('event-name')`
-  - ![emitting-an-event](2020-02-25-20-24-39.png)
+  - ![emitting-an-event](img/2020-02-25-20-24-39.png)
 
 ## [10. Forms](https://www.vuemastery.com/courses/intro-to-vue-js/forms)
 
 - The `v-model` directive gives us two-way data binding.
-  - ![v-model](2020-02-25-20-36-37.png)
+  - ![v-model](img/2020-02-25-20-36-37.png)
+- `number` in `v-model.number` is a modifier that casts `rating` to a number.
+  - ![number-modifier](img/2020-02-25-20-48-38.png)
+- The `.prevent` modifier prevents the default behavior (in this case,  the page from refreshing when the form is submitted).
+  - ![prevent-modifier](img/2020-02-25-20-50-15.png)
+- ![on-submit-method](img/2020-02-25-20-51-36.png)
+- Sending our `productReview` object up to our parent:
+  - ![product-review](img/2020-02-25-20-53-27.png)
+  - ![add-review](img/2020-02-25-20-54-00.png)
+  - ![reviews](img/2020-02-25-20-54-48.png)
+  - ![show-reviews](img/2020-02-25-20-57-15.png)
+- Can use HTML5 `required` attribute for required fields.
+  - ![required](img/2020-02-25-20-58-07.png)
+- Custom validation
+  - Building an errors array:
+    - ![errors](img/2020-02-25-21-00-08.png)
+    - ![submission](img/2020-02-25-21-02-12.png)
+- Resources:
+  - [Modifiers](https://vuejs.org/v2/guide/forms.html#Modifiers)
+  - [Event Modifiers](https://vuejs.org/v2/guide/events.html#Event-Modifiers)
+  - [Custom Validation](https://vuejs.org/v2/cookbook/form-validation.html#Another-Example-of-Custom-Validation)
+
+## [11. Tabs](https://www.vuemastery.com/courses/intro-to-vue-js/tabs)
+
+- ![active-tab-class](img/2020-02-25-21-12-01.png)
+- ![reviews-prop-validation](img/2020-02-25-21-15-45.png)
+- ![v-show](img/2020-02-25-21-14-37.png)
+- But ProductReview is now a grandchild of Product (through ProductTabs). So `addReview` is not defined.
+  - We'll define a new global Vue `eventBus` instance
+    - ![define-event-bus](img/2020-02-25-21-18-49.png)
+    - ![emit](img/2020-02-25-21-19-39.png)
+    - As soon as the Product component is mounted to the DOM, listen for the `review-submitted` event.
+      - ![listen](img/2020-02-25-21-20-49.png)
+- Resources
+  - [Real World Vue.js](https://www.vuemastery.com/courses/real-world-vue-js/real-world-intro/) for life cycle hooks, Axios, routing, etc.
+  - [Vuex](https://vuex.vuejs.org/) for more advanced state management
