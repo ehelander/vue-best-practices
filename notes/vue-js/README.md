@@ -1,11 +1,19 @@
 # VueJS.org
 
+- [VueJS.org](#vuejsorg)
+  - [Style Guide](#style-guide)
+  - [Tips & Best Practices](#tips--best-practices)
+  - [Vue Guide](#vue-guide)
+    - [Introduction](#introduction)
+    - [The Vue Instance](#the-vue-instance)
+
 ## [Style Guide](https://vuejs.org/v2/style-guide/)
 
 - Rule categories:
+
   - Priority A: Essential (Error Prevention)
     - Multi-word component names
-      - Component names should always be multi-word, *except* for root `App` components and built-in components provided by Vue (e.g., `<transition>` or `<component>`)
+      - Component names should always be multi-word, _except_ for root `App` components and built-in components provided by Vue (e.g., `<transition>` or `<component>`)
         - This prevents conflicts with current/future HTML elements, since all HTML elements are one word.
     - Component data
       - Component `data` must be a function
@@ -44,6 +52,7 @@
         - The `$` prefix is used for special instance properties that are exposed to the user.
         - So `$_` makes sense for user-defined private properties.
   - Priority B: Strongly Recommended
+
     - Component files
       - Whenever a build system is available to concatenate files, each component should be in its own file.
         - Helps with more quickly finding files.
@@ -54,13 +63,13 @@
       - Base components that apply app-specific styling and conventions should begin with a specific prefix, such as `Base`, `App`, or `V`.
         - Base components:
           - Presentational, dumb, or pure components.
-          - Contain *only* HTML elements, other base components, and 3rd-party UI component.
+          - Contain _only_ HTML elements, other base components, and 3rd-party UI component.
           - Never contain global state (e.g., from a Vuex store).
           - Often contain the name of an element they wrap (e.g., `BaseButton` or `BaseTable`).
           - Webpack enables making these components available globally (without needing to import them).
     - Single-instance component names
       - Components that should only ever have a single active instance should being with `The`.
-        - Indicates that a component should only be used once *per page* (not necessarily only being used on a single page).
+        - Indicates that a component should only be used once _per page_ (not necessarily only being used on a single page).
         - These components don't accept any props.
     - Tightly-coupled component names
       - Child components that are tightly coupled with their parents should include the parent component name as a prefix.
@@ -83,18 +92,20 @@
       - Component names should prefer full words over abbreviations.
         - Clarity over brevity (especially with auto-completion).
     - Prop name casing
+
       - Prop names should use camelCase during declaration but kebab-case in templates and JSX.
+
         - E.g.:
 
           ```js
           // Good
           props: {
-            greetingText: String
+            greetingText: String;
           }
           ```
 
           ```html
-          <WelcomeMessage greeting-text="hi"/>
+          <WelcomeMessage greeting-text="hi" />
           ```
 
     - Multi-attribute elements
@@ -111,6 +122,7 @@
         - `:`: `v-bind:`
         - `@`: `v-on:`
         - `#`: `v-slot`
+
   - Priority C: Recommended
   - Priority D: Use with Caution
 
@@ -138,6 +150,7 @@
     - `v-model`
       - For two-way binding between form input and app state.
 - Composing with Components
+
   - A component: Vue instance with pre-defined options.
   - Registering a component with a prop
 
@@ -191,18 +204,21 @@
 ### [The Vue Instance](https://vuejs.org/v2/guide/instance.html)
 
 - Creating a Vue instance
+
   - Every Vue application starts with creating a new Vue instance with the `Vue` function.
 
     ```js
     var vm = new Vue({
       // options
-    })
+    });
     ```
 
   - Note that `vm` is often used as a shorthand for `ViewModel`, referring to the Vue instance.
   - See the full list of options in the [API reference](https://vuejs.org/v2/api/#Options-Data)
   - All components are Vue instances and accept the majority of the same options (except for root-specific ones).
+
 - Data and Methods
+
   - When a Vue instance is created, it adds all the properties in its `data` object to Vue's reactivity system.
     - When the values of these properties change, the view 'reacts', updating to match the new values.
     - When the data changes, the view will re-render.
@@ -213,17 +229,19 @@
   - Vue's instance properties and methods are prefixed with `$` to differentiate them from user-defined properties.
 
     ```js
-    vm.$data === data //true
-    vm.$el === document.getElementById('example') // true
-    vm.$watch('a', function (newValue, oldValue) {
+    vm.$data === data; //true
+    vm.$el === document.getElementById("example"); // true
+    vm.$watch("a", function (newValue, oldValue) {
       // This callback will be triggered when `vm.a` changes
-    })
+    });
     ```
 
   - Refer to the full list of instance properties and methods in the [API reference](https://vuejs.org/v2/api/#Instance-Properties)
 
 - Instance Lifecycle Hooks
+
   - `created` hook
+
     - Can be use to run code after an instance is created
 
     ```js

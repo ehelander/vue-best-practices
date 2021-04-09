@@ -1,5 +1,18 @@
 # Intro to Vue.js
 
+- [Intro to Vue.js](#intro-to-vuejs)
+  - [1. The Vue Instance](#1-the-vue-instance)
+  - [2. Attribute Binding](#2-attribute-binding)
+  - [3. Conditional Rendering](#3-conditional-rendering)
+  - [4. List Rendering](#4-list-rendering)
+  - [5. Event Handling](#5-event-handling)
+  - [6. Class & Style Binding](#6-class--style-binding)
+  - [7. Computed Properties](#7-computed-properties)
+  - [8. Components](#8-components)
+  - [9. Communicating Events](#9-communicating-events)
+  - [10. Forms](#10-forms)
+  - [11. Tabs](#11-tabs)
+
 ## [1. The Vue Instance](https://www.vuemastery.com/courses/intro-to-vue-js/vue-instance)
 
 - Vue dev tools (Chrome or FireFox)
@@ -62,7 +75,7 @@
     - ![style-binding_array](img/2020-02-15-16-52-13.png)
 - Class bindings
   - ![class-binding](img/2020-02-15-16-56-25.png)
-    - This *adds* classes: Any classes that are directly assigned to the element are still present.
+    - This _adds_ classes: Any classes that are directly assigned to the element are still present.
   - This assigns the `.disabledButton` class (from the style sheet) whenever `inStock` is falsy:
     - ![class-binding](img/2020-02-15-16-55-03.png)
   - We can also bind an object of classes:
